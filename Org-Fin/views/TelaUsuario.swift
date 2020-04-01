@@ -9,7 +9,8 @@
 import Foundation
 
 class TelaUsuario{
-    
+    //Definimos os atributos da tela de usuario
+
     var idUsuario:Int
     let controlador:UsuarioController
     let nome:String
@@ -18,6 +19,9 @@ class TelaUsuario{
     var diario:Double
     
     init(id:Int, telaInicialController:UsuarioController){
+        //recebe um id e um controlador
+        //atribui valores vindos do controlador para o usuario
+
         idUsuario = id
         controlador = telaInicialController
         nome = controlador.usuarios[idUsuario].nome
@@ -27,6 +31,8 @@ class TelaUsuario{
     }
     
     func mostrarDados(){
+        //mostra o nome do usuario e o seu valor diário disponível
+
         print("\n\n\nUsuário:", nome)
         print("")
         print("Valor disponivel diário: R$", Double(round(diario*100)/100))
@@ -35,7 +41,8 @@ class TelaUsuario{
     }
     
     func opcoesUsuario(){
-        
+        //mostra um menu para adicionar novo gasto, passar um dia e voltar para o menu principal
+
         print("1 - Adicionar um novo gasto.\n2 - Passar um dia.\n3 - Mostrar distribuição da sua renda.\n\n\nV - Voltar.")
         let escolha = readLine(strippingNewline: true)
         
@@ -61,6 +68,8 @@ class TelaUsuario{
     }
     
     func adicionarGasto(){
+        //função para adicionar um novo gasto
+
         print("Digite o seu gasto, separando os decimais por ponto (.) e em seguida pressione enter.\n")
         let novoGasto = readLine(strippingNewline: true)
         if let gasto = novoGasto, let gastoDouble = Double(gasto), gastoDouble > 0{
@@ -71,13 +80,14 @@ class TelaUsuario{
     }
     
     func passarDia(){
-        
+        //função para passar o dia e fazer o balanceamento financeiro do novo dia
         diario = diario + controlador.usuarios[idUsuario].valorDiarioInicial
         controlador.usuarios[idUsuario].valorDisponivelDiario += controlador.usuarios[idUsuario].valorDiarioInicial
         mostrarDados()
     }
     
     func mostrarDistribuicao(){
+        //Mostra os gastos fixos, valor guardado e valor emergencial que o usuario cadastrou
         print("""
             DISTRIBUIÇÃO DE RENDA 🦁
             =========================

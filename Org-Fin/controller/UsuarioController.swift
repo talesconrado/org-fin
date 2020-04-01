@@ -12,11 +12,13 @@ import Foundation
 class UsuarioController{
     //Controller para atualizar e interagir com o model Usuario
     //Possui uma array de usuarios para guardar os dados
+    //Possui um banco de usuarios para salvar e carregar os dados
     var banco = BancoDeUsuarios()
     var usuarios:[Usuario]
     var usuarioAtual:Int = -1
     
     init(){
+        //inicializa o banco de usuarios
         usuarios = banco.usuarios
     }
     

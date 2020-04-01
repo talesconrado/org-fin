@@ -22,7 +22,8 @@ class Usuario:Codable{
     let valorEmergencial:Double
     
     init(nome:String, salario:Double, gastoFixo:Double, valorGuardado:Double, valorEmergencial:Double) {
-        
+        //Inicialiamos as variáveis com os valores recebidos
+
         self.nome = nome
         self.salario = salario
         self.gastoFixo = gastoFixo

@@ -13,10 +13,12 @@ class TelaInicial{
     let controlador:UsuarioController
     
     init(controlador:UsuarioController){
+        //Define qual o controlador responsavel pelas interações
         self.controlador = controlador
     }
     
     func boasVindas(){
+        //Apresenta texto de boas vindas e chama a função menu
         print("Seja bem-vindo ao seu Organizador Financeiro!\n")
         print("Uma aplicação que vai revolucionar a forma como você gerencia o seu dinheiro! Adicione gastos, confira seu saldo diário, acompanhe suas economias, tudo no seu T E R M I N A L.\n")
         print("Pressione enter para continuar...")
@@ -25,7 +27,8 @@ class TelaInicial{
     }
     
     func menu(opcao: Int = 0){
-        
+        //Pode receber um parametro que caso não seja passado tem valor padrão 0 e serve para controlar o menu principal do programa. Na opção 0, ele printa o menu inteiro, na opção 1 ele entra no submenu de acessar um usuario cadastrado, na opção 2 podemos cadastrar um novo usuário, na opção 3 deletamos um usuário e na opção s, saímos do programa.
+
         
         let escolha:String?
         if(opcao == 0){
@@ -129,6 +132,8 @@ class TelaInicial{
     }
     
     func mostrarUsuarios(){
+        //Função que recebe os usuários do controlador e printa seus nomes.
+
         
         let listaUsuarios = controlador.listarUsuarios()
         var contador = 0
@@ -139,7 +144,7 @@ class TelaInicial{
     }
     
     func receberDados()-> (Bool, String, Double, Double, Double, Double){
-        //retornar booleano e loop
+        //função para receber os dados do cadastro de novo usuário que devolve uma tupla com os dados.
         
         print("Precisamos de algumas informações suas para começar.\n")
         print("Primeiro, digite o seu nome:")
